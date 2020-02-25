@@ -1,5 +1,8 @@
 const puppeteer = require('puppeteer');
-const path = './react.pdf';
+const path = './cv.pdf';
+
+const height = 842 * 2.4;
+const width = 595 * 2.4;
 
 (async () => {
   const browser = await puppeteer.launch();
@@ -10,8 +13,8 @@ const path = './react.pdf';
   await page.pdf({
     path,
     printBackground: true,
-    width: '1280px',
-    height: '1024px'
+    width,
+    height
   });
   console.log(`pdf created at ${ path }`)
   await browser.close();
